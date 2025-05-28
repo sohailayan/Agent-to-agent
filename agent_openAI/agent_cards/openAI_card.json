@@ -1,0 +1,13 @@
+{
+    "name": "OpenAI General Answer Agent",
+    "description": "Answers any user question using OpenAI models via Azure AI Inference",
+    "version": "1.0.0",
+    "endpoint": "http://localhost:8000/rpc",
+    "skills":[
+        {
+            "name": "answer_question",
+            "description": "Answer any user question in natural language",
+            "tags": ["qa", "text", "openai", "azure"]
+        }
+    ]
+}
