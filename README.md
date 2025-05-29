@@ -2,7 +2,7 @@ Multi-Agent Q&A System
 A Streamlit-based web app that compares answers from multiple AI agents (ChatGPT, DeepSeek, Grok, and LLaMA) in real time. Users can view summaries, read full responses, and vote on their preferred agent. Agent preferences are logged to a Google Sheet for analysis.
 
 📂 Project Structure
-bash
+graphql
 Copy
 Edit
 Multi-Agent-QA/
@@ -28,18 +28,18 @@ Multi-Agent-QA/
 │   ├── app.py              # Streamlit frontend
 │   ├── credentials.json    # GCP service account key
 │   └── gsheet_utils.py     # Google Sheets logging logic
-⚙️ How It Works
+How It Works
 Ask a question in the Streamlit UI (app.py).
 
-The system sends your query to 4 agents (ChatGPT, DeepSeek, Grok, and LLaMA).
+The system sends your query to four agents: ChatGPT, DeepSeek, Grok, and LLaMA.
 
-Each agent returns a response, and a summary of each answer is shown.
+Each agent returns a response. Summaries are shown on the interface.
 
-Click "Read Full Answer" to expand and see the complete response.
+Click "Read Full Answer" to view complete responses.
 
-When you expand any agent's response, it logs your click to a Google Sheet via gsheet_utils.py.
+Each click logs an event to Google Sheets using gsheet_utils.py.
 
-At the end, you can vote for your preferred answer, helping us collect preference analytics.
+Users can vote for their preferred answer to help collect preference analytics.
 
 🚀 Getting Started
 Prerequisites
@@ -54,7 +54,7 @@ bash
 Copy
 Edit
 pip install -r requirements.txt
-Setup Google Sheets Logging
+Google Sheets Logging Setup
 Create a Google Sheet named: Agent click logs
 
 Add headers in the first row:
@@ -63,12 +63,12 @@ mathematica
 Copy
 Edit
 Agent Name | Count
-Download your credentials.json from Google Cloud Console (Service Account with Sheets and Drive API enabled).
+Download your credentials.json from Google Cloud Console with Sheets and Drive API access.
 
 Place it inside the Hosting/ folder.
 
 ▶️ Running the App
-Ensure each agent is running at the respective ports:
+Ensure each agent is running on the following ports:
 
 Agent	Port
 ChatGPT	8000
@@ -76,7 +76,7 @@ DeepSeek	8001
 Grok	8002
 LLaMA	8003
 
-Then run:
+Run the app:
 
 bash
 Copy
@@ -85,45 +85,32 @@ cd Hosting
 streamlit run app.py
 🧠 Agents Overview
 Agent	Uses Card?	Main File Location
-ChatGPT	✅	Agent_OpenAI/AgentCard/
-DeepSeek	✅	Agent_DeepSeek/AgentCard/
-Grok	❌	Agent_Grok/main.py
-LLaMA	❌	Agent_LLaMA/main.py
+ChatGPT	Yes	Agent_OpenAI/AgentCard/
+DeepSeek	Yes	Agent_DeepSeek/AgentCard/
+Grok	No	Agent_Grok/main.py
+LLaMA	No	Agent_LLaMA/main.py
 
 🗃️ Google Sheets Logging Logic
-The logging is handled in gsheet_utils.py. When a user expands an agent's answer, it:
+Logging is handled via gsheet_utils.py. When a user expands an agent's answer:
 
-Opens the Google Sheet.
+It opens the Google Sheet.
 
-Increments the click count for that agent.
+Increments the click count for the selected agent.
 
-Adds a new row if the agent isn’t already listed.
+Adds a new row if the agent does not yet exist in the sheet.
 
 📊 Use Case
-This system helps compare the performance and quality of different language models by:
+This system is designed to:
 
-Collecting human preference data.
+Compare the performance and quality of multiple language models.
 
-Offering a single interface for multi-agent responses.
+Collect human preference data.
 
-Allowing easy experimentation across multiple LLM backends.
+Provide a single interface for multi-agent responses.
 
-🔐 Security Note
-Ensure credentials.json is never exposed publicly. Add it to your .gitignore.
+Enable easy experimentation with different LLM backends.
 
-📌 TODO (Optional Enhancements)
-Add support for asynchronous WebSocket-based agents.
 
-Store full answer logs in Google Sheets.
-
-Add feedback comments for why users preferred a response.
-
-Visualize preference analytics using Streamlit or Google Sheets Charts.
-
-👨‍💻 Author
-Built with ❤️ for evaluating and improving agent performance across LLMs.
-
-Certainly! Here’s a clear, markdown-friendly section you can copy directly into your GitHub README to explain why your system is only partially A2A and how to make it fully A2A-compliant:
 
 ---
 
