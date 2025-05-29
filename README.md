@@ -1,10 +1,7 @@
-Multi-Agent Q&A System
+##Multi-Agent Q&A System
 A Streamlit-based web app that compares answers from multiple AI agents (ChatGPT, DeepSeek, Grok, and LLaMA) in real time. Users can view summaries, read full responses, and vote on their preferred agent. Agent preferences are logged to a Google Sheet for analysis.
 
 📂 Project Structure
-graphql
-Copy
-Edit
 Multi-Agent-QA/
 ├── Agent_DeepSeek/
 │   ├── AgentCard/
@@ -28,7 +25,7 @@ Multi-Agent-QA/
 │   ├── app.py              # Streamlit frontend
 │   ├── credentials.json    # GCP service account key
 │   └── gsheet_utils.py     # Google Sheets logging logic
-How It Works
+##Working
 Ask a question in the Streamlit UI (app.py).
 
 The system sends your query to four agents: ChatGPT, DeepSeek, Grok, and LLaMA.
@@ -41,7 +38,7 @@ Each click logs an event to Google Sheets using gsheet_utils.py.
 
 Users can vote for their preferred answer to help collect preference analytics.
 
-🚀 Getting Started
+Getting Started
 Prerequisites
 Python 3.9+
 
@@ -50,18 +47,13 @@ Google Cloud Project with a Service Account key
 Four local or hosted agents running JSON-RPC interfaces
 
 Install Requirements
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Google Sheets Logging Setup
-Create a Google Sheet named: Agent click logs
+
+-pip install -r requirements.txt
+-Google Sheets Logging Setup
+-Create a Google Sheet named: Agent click logs
 
 Add headers in the first row:
 
-mathematica
-Copy
-Edit
 Agent Name | Count
 Download your credentials.json from Google Cloud Console with Sheets and Drive API access.
 
@@ -78,17 +70,15 @@ LLaMA	8003
 
 Run the app:
 
-bash
-Copy
-Edit
 cd Hosting
 streamlit run app.py
+
 🧠 Agents Overview
 Agent	Uses Card?	Main File Location
 ChatGPT	Yes	Agent_OpenAI/AgentCard/
 DeepSeek	Yes	Agent_DeepSeek/AgentCard/
-Grok	No	Agent_Grok/main.py
-LLaMA	No	Agent_LLaMA/main.py
+Grok	Yes	Agent_Grok/main.py
+LLaMA	Yes	Agent_LLaMA/main.py
 
 🗃️ Google Sheets Logging Logic
 Logging is handled via gsheet_utils.py. When a user expands an agent's answer:
@@ -109,7 +99,6 @@ Collect human preference data.
 Provide a single interface for multi-agent responses.
 
 Enable easy experimentation with different LLM backends.
-
 
 
 ---
@@ -137,7 +126,5 @@ By following these steps, you can evolve this project from a centralized, orches
 
 For more details, refer to the [A2A protocol specification](https://google.github.io/A2A/) and related implementation guides.
 
----
-Answer from Perplexity: pplx.ai/share
 
 "# Agent-to-agent" 
