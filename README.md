@@ -2,7 +2,8 @@
 
 A Streamlit-based web app that compares answers from multiple AI agents (ChatGPT, DeepSeek, Grok, and LLaMA) in real time. Users can view summaries, read full responses, and vote on their preferred agent. Agent preferences are logged to a Google Sheet for analysis.
 
-📂 Project Structure
+## Project Structure
+```
 Multi-Agent-QA/
 ├── Agent_DeepSeek/
 │   ├── AgentCard/
@@ -26,6 +27,7 @@ Multi-Agent-QA/
 │   ├── app.py              # Streamlit frontend
 │   ├── credentials.json    # GCP service account key
 │   └── gsheet_utils.py     # Google Sheets logging logic
+```
 ## Working
 Ask a question in the Streamlit UI (app.py).
 
