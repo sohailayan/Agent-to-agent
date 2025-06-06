@@ -41,7 +41,7 @@ Each click logs an event to Google Sheets using gsheet_utils.py.
 
 Users can vote for their preferred answer to help collect preference analytics.
 
-Getting Started
+## Getting Started
 Prerequisites
 Python 3.9+
 
@@ -49,20 +49,20 @@ Google Cloud Project with a Service Account key
 
 Four local or hosted agents running JSON-RPC interfaces
 
-Install Requirements
+## Install Requirements
 
 -pip install -r requirements.txt
 -Google Sheets Logging Setup
 -Create a Google Sheet named: Agent click logs
 
-Add headers in the first row:
+## Add headers in the first row:
 
 Agent Name | Count
 Download your credentials.json from Google Cloud Console with Sheets and Drive API access.
 
 Place it inside the Hosting/ folder.
 
-▶️ Running the App
+## Running the App
 Ensure each agent is running on the following ports:
 
 Agent	Port
@@ -72,18 +72,17 @@ Grok	8002
 LLaMA	8003
 
 Run the app:
-
 cd Hosting
 streamlit run app.py
 
-🧠 Agents Overview
+## Agents Overview
 Agent	Uses Card?	Main File Location
 ChatGPT	Yes	Agent_OpenAI/AgentCard/
 DeepSeek	Yes	Agent_DeepSeek/AgentCard/
 Grok	Yes	Agent_Grok/main.py
 LLaMA	Yes	Agent_LLaMA/main.py
 
-🗃️ Google Sheets Logging Logic
+## Google Sheets Logging Logic
 Logging is handled via gsheet_utils.py. When a user expands an agent's answer:
 
 It opens the Google Sheet.
@@ -92,7 +91,7 @@ Increments the click count for the selected agent.
 
 Adds a new row if the agent does not yet exist in the sheet.
 
-📊 Use Case
+## Use Case
 This system is designed to:
 
 Compare the performance and quality of multiple language models.
@@ -102,9 +101,6 @@ Collect human preference data.
 Provide a single interface for multi-agent responses.
 
 Enable easy experimentation with different LLM backends.
-
-
----
 
 ## Why This System is Only Partially A2A
 
@@ -130,4 +126,4 @@ By following these steps, you can evolve this project from a centralized, orches
 For more details, refer to the [A2A protocol specification](https://google.github.io/A2A/) and related implementation guides.
 
 
-"# Agent-to-agent" 
+## "Agent-to-agent" 
